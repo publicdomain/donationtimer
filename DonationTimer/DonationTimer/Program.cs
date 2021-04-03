@@ -25,6 +25,9 @@ namespace DonationTimer
             // Declare wait time 
             string waitTime = string.Empty;
 
+            // Declare hour and minutes
+            int hour, minutes;
+
             // Get valid waittime from user
             do
             {
@@ -37,11 +40,22 @@ namespace DonationTimer
                 // Check for valid input
                 if (waitTime.Length == 3 && int.TryParse(waitTime, out int result))
                 {
-                    // Toggle flag
-                    isValidWaitTime = true;
+                    // Set hour
+                    hour = int.Parse(waitTime.Substring(0, 1));
+
+                    // Set minutes
+                    minutes = int.Parse(waitTime.Substring(1, 2));
+
+                    // Validate minutes
+                    if (minutes < 60)
+                    {
+                        // Toggle flag
+                        isValidWaitTime = true;
+                    }
                 }
 
             } while (!isValidWaitTime);
+
         }
     }
 }

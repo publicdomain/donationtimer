@@ -26,7 +26,7 @@ namespace DonationTimer
             string waitTime = string.Empty;
 
             // Declare hour and minutes
-            int hour, minutes;
+            int hour = 0, minutes = 0;
 
             // Get valid waittime from user
             do
@@ -56,6 +56,8 @@ namespace DonationTimer
 
             } while (!isValidWaitTime);
 
+            // Print sleep time
+            Console.WriteLine($"{hour} hour{(hour > 1 ? "s" : string.Empty)} {minutes} minute{(minutes > 1 ? "s" : string.Empty)}...");
         }
     }
 }

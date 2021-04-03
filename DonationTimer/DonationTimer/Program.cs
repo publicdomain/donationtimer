@@ -87,7 +87,12 @@ namespace DonationTimer
                     SoundLocation = soundFilePath
                 };
                 soundPlayer.Load();
-                soundPlayer.Play();
+                soundPlayer.PlaySync();
+            }
+            else
+            {
+                // Beep
+                Console.Beep();
             }
         }
     }

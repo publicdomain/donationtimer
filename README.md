@@ -27,7 +27,7 @@ Day #93, Week #13 @ April 03, 2021
 * Jesse Reichler (A.K.A. Mouser from DonationCoder.com)
 * Tim Parsons
 
-Support us from **$1**! Visit: [https://www.patreon.com/publicdomain](www.patreon.com/publicdomain)
+Support us from **$1**! Visit: [www.patreon.com/publicdomain](https://www.patreon.com/publicdomain)
 
 ==========
 

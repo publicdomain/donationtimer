@@ -19,7 +19,29 @@ namespace DonationTimer
         /// <param name="args">The command-line arguments.</param>
         public static void Main(string[] args)
         {
-            // TODO Add code
+            // Declare valid wait time flag
+            bool isValidWaitTime = false;
+
+            // Declare wait time 
+            string waitTime = string.Empty;
+
+            // Get valid waittime from user
+            do
+            {
+                // Ask for wait time
+                Console.WriteLine("Please enter wait time [hmm]: ");
+
+                // Set wait time
+                waitTime = Console.ReadLine();
+
+                // Check for valid input
+                if (waitTime.Length == 3 && int.TryParse(waitTime, out int result))
+                {
+                    // Toggle flag
+                    isValidWaitTime = true;
+                }
+
+            } while (!isValidWaitTime);
         }
     }
 }

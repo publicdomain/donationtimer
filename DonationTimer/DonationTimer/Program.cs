@@ -7,6 +7,7 @@ namespace DonationTimer
 {
     // Directives
     using System;
+    using System.Threading;
 
     /// <summary>
     /// Main class.
@@ -25,8 +26,8 @@ namespace DonationTimer
             // Declare wait time 
             string waitTime = string.Empty;
 
-            // Declare hour and minutes
-            int hour = 0, minutes = 0;
+            // Declare hours and minutes
+            int hours = 0, minutes = 0;
 
             // Get valid waittime from user
             do
@@ -41,7 +42,7 @@ namespace DonationTimer
                 if (waitTime.Length == 3 && int.TryParse(waitTime, out int result))
                 {
                     // Set hour
-                    hour = int.Parse(waitTime.Substring(0, 1));
+                    hours = int.Parse(waitTime.Substring(0, 1));
 
                     // Set minutes
                     minutes = int.Parse(waitTime.Substring(1, 2));
@@ -57,7 +58,17 @@ namespace DonationTimer
             } while (!isValidWaitTime);
 
             // Print sleep time
-            Console.WriteLine($"{hour} hour{(hour > 1 ? "s" : string.Empty)} {minutes} minute{(minutes > 1 ? "s" : string.Empty)}...");
+            Console.WriteLine($"{hours} hour{(hours > 1 ? "s" : string.Empty)} {minutes} minute{(minutes > 1 ? "s" : string.Empty)}...");
+
+            // Declare DateTime in the future
+            var futureDateTime = DateTime.Now + new TimeSpan(hours, minutes, 0); ;
+
+            // Pause loop
+            while (DateTime.Now <= futureDateTime)
+            {
+                // Sleep for one second
+                Thread.Sleep(1000);
+            }
         }
     }
 }

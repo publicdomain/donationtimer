@@ -7,6 +7,8 @@ namespace DonationTimer
 {
     // Directives
     using System;
+    using System.IO;
+    using System.Media;
     using System.Threading;
 
     /// <summary>
@@ -20,6 +22,9 @@ namespace DonationTimer
         /// <param name="args">The command-line arguments.</param>
         public static void Main(string[] args)
         {
+            // Set console color
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+
             // Declare valid wait time flag
             bool isValidWaitTime = false;
 
@@ -33,7 +38,7 @@ namespace DonationTimer
             do
             {
                 // Ask for wait time
-                Console.WriteLine("Please enter wait time [hmm]: ");
+                Console.WriteLine("Please enter wait time (hmm): ");
 
                 // Set wait time
                 waitTime = Console.ReadLine();
@@ -68,6 +73,21 @@ namespace DonationTimer
             {
                 // Sleep for one second
                 Thread.Sleep(1000);
+            }
+
+            // Set sound file path
+            string soundFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "DonationTimer.wav");
+
+            // Check for .wav file
+            if (File.Exists(soundFilePath))
+            {
+                // Play sound file
+                SoundPlayer soundPlayer = new SoundPlayer
+                {
+                    SoundLocation = soundFilePath
+                };
+                soundPlayer.Load();
+                soundPlayer.Play();
             }
         }
     }

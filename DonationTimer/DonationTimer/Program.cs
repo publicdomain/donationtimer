@@ -34,11 +34,17 @@ namespace DonationTimer
             // Declare hours and minutes
             int hours = 0, minutes = 0;
 
+            // Set prompt text
+            string promptText = "Please enter wait time (hmm):";
+
             // Get valid waittime from user
             do
             {
                 // Ask for wait time
-                Console.WriteLine("Please enter wait time (hmm): ");
+                Console.Write(promptText);
+
+                // Set cursor position
+                Console.SetCursorPosition(promptText.Length + 1, Console.CursorTop);
 
                 // Set wait time
                 waitTime = Console.ReadLine();
